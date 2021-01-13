@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  syncable: one
+  syncable_type: Syncable
+  uuid: MyString
+
+two:
+  syncable: two
+  syncable_type: Syncable
+  uuid: MyString
