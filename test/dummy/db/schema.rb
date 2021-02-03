@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_13_135555) do
+ActiveRecord::Schema.define(version: 2021_02_03_025300) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "glowstick_indices", force: :cascade do |t|
     t.string "syncable_type", null: false
@@ -29,4 +35,13 @@ ActiveRecord::Schema.define(version: 2021_01_13_135555) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.integer "account_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_projects_on_account_id"
+  end
+
+  add_foreign_key "projects", "accounts"
 end
